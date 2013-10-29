@@ -69,11 +69,17 @@ addMultipleEdgesToGraph <- function(graph,edgeSet){
   graph <- graph + edges(edgeSet)
   return(graph)
 }
+addMultipleVerticesToGraph <- function(graph,nodeSet){
+  print("Adding Multiple Vertices to graph")
+  graph <- graph + vertices(nodeSet)
+  return(graph)
+}
 g <- createEmptyGraph()
 nodeSet <- c(test$getNodes())
-for(i in 1:length(nodeSet)){
-  g <- addVertexToGraph(g,nodeSet[i])
-}
+g <- addMultipleVerticesToGraph(g,nodeSet)
+# for(i in 1:length(nodeSet)){
+#   g <- addVertexToGraph(g,nodeSet[i])
+# }
 edgeSet <- c(test$getEdges())
 g <- addMultipleEdgesToGraph(g,edgeSet)
 get.edgelist(g)
